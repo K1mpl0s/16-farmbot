@@ -20,6 +20,10 @@ if '3.7' not in str(sys.version):
     exit()
 else:
     if os.path.isdir('./storage/downloads/16-2.0.9.1/16 Farmbot/source'):
-        subprocess.run('python3 "storage/downloads/16-2.0.9.1/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+        subprocess.run('cd "storage/downloads/16-2.0.9.1/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+        subprocess.run('python3 "16-2.0.9.1/16 Farmbot/source/bot.pyc"', shell=True, check=False)
     elif os.path.isdir('./storage/downloads/16 Farmbot/source'):
-        subprocess.run('python3 "storage/downloads/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+        subprocess.run('cd "storage/downloads/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+        subprocess.run('python3 "16 Farmbot/source/bot.pyc"', shell=True, check=False)
+    else:
+        print('[!] unable to locate 16 folder in "downloads"')
