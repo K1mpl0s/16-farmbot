@@ -20,14 +20,13 @@ if '3.7' not in str(sys.version):
         f.write(chunk)
     f.close()
     subprocess.run(f"dpkg -i ./python_3.7.5_{uname}.deb", shell=True, check=False)
-    print('[!] successfully installed python3.7\nplease run "android.py" again...')
-    exit()
+    print('\n\n\n')
+    print('[!] successfully installed python3.7')
+if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source'):
+    subprocess.run('cd "storage/downloads/16-' + version + '/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+    subprocess.run('python3 "16-' + version + '16 Farmbot/source/bot.pyc"', shell=True, check=False)
+elif os.path.isdir('./storage/downloads/16 Farmbot/source'):
+    subprocess.run('cd "storage/downloads/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+    subprocess.run('python3 "16 Farmbot/source/bot.pyc"', shell=True, check=False)
 else:
-    if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source'):
-        subprocess.run('cd "storage/downloads/16-' + version + '/16 Farmbot/source/bot.pyc"', shell=True, check=False)
-        subprocess.run('python3 "16-' + version + '16 Farmbot/source/bot.pyc"', shell=True, check=False)
-    elif os.path.isdir('./storage/downloads/16 Farmbot/source'):
-        subprocess.run('cd "storage/downloads/16 Farmbot/source/bot.pyc"', shell=True, check=False)
-        subprocess.run('python3 "16 Farmbot/source/bot.pyc"', shell=True, check=False)
-    else:
-        print('[!] unable to locate 16 folder in "downloads"')
+    print('[!] unable to locate 16 folder in "downloads"')
