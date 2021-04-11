@@ -19,9 +19,9 @@ if '3.7' not in str(sys.version):
     print('[!] successfully installed python3.7\nplease run "android.py" again...')
     exit()
 else:
-    if os.path.isdir('./storage/downloads/16-2.0.9.1/16 Farmbot/source'):
-        subprocess.run('cd "storage/downloads/16-2.0.9.1/16 Farmbot/source/bot.pyc"', shell=True, check=False)
-        subprocess.run('python3 "16-2.0.9.1/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+    if os.path.isdir('./storage/downloads/16-2.0.9.3/16 Farmbot/source'):
+        subprocess.run('cd "storage/downloads/16-2.0.9.3/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+        subprocess.run('python3 "16-2.0.9.3/16 Farmbot/source/bot.pyc"', shell=True, check=False)
     elif os.path.isdir('./storage/downloads/16 Farmbot/source'):
         subprocess.run('cd "storage/downloads/16 Farmbot/source/bot.pyc"', shell=True, check=False)
         subprocess.run('python3 "16 Farmbot/source/bot.pyc"', shell=True, check=False)
