@@ -22,10 +22,18 @@ if '3.7' not in str(sys.version):
     subprocess.run(f"dpkg -i ./python_3.7.5_{uname}.deb", shell=True, check=False)
     print('\n\n\n')
     print('[!] successfully installed python3.7')
-if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source'):
+dir_path = os.path.dirname(os.path.realpath(__file__))
+print(dir_path)
+if os.path.isdir('./storage/'):
+    print('storage is path')
+if os.path.isdir('./storage/downloads/'):
+    print('downloads is path')
+if os.path.isdir('./storage/downloads/16-' + version):
+    print('16 is path')
+if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source/'):
     subprocess.run('cd "storage/downloads/16-' + version + '/16 Farmbot/source/bot.pyc"', shell=True, check=False)
     subprocess.run('python3 "16-' + version + '16 Farmbot/source/bot.pyc"', shell=True, check=False)
-elif os.path.isdir('./storage/downloads/16 Farmbot/source'):
+elif os.path.isdir('./storage/downloads/16 Farmbot/source/'):
     subprocess.run('cd "storage/downloads/16 Farmbot/source/bot.pyc"', shell=True, check=False)
     subprocess.run('python3 "16 Farmbot/source/bot.pyc"', shell=True, check=False)
 else:
