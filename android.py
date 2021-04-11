@@ -3,6 +3,10 @@ import platform
 import requests
 import os
 import subprocess
+
+r = requests.get(f"https://raw.githubusercontent.com/K1mpl0s/16-farmbot/main/version.json")
+version = r.json()['version']
+
 if '3.7' not in str(sys.version):
     uname = platform.machine()
     clean_uname = None
@@ -19,9 +23,9 @@ if '3.7' not in str(sys.version):
     print('[!] successfully installed python3.7\nplease run "android.py" again...')
     exit()
 else:
-    if os.path.isdir('./storage/downloads/16-2.0.9.3/16 Farmbot/source'):
-        subprocess.run('cd "storage/downloads/16-2.0.9.3/16 Farmbot/source/bot.pyc"', shell=True, check=False)
-        subprocess.run('python3 "16-2.0.9.3/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+    if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source'):
+        subprocess.run('cd "storage/downloads/16-' + version + '/16 Farmbot/source/bot.pyc"', shell=True, check=False)
+        subprocess.run('python3 "16-' + version + '16 Farmbot/source/bot.pyc"', shell=True, check=False)
     elif os.path.isdir('./storage/downloads/16 Farmbot/source'):
         subprocess.run('cd "storage/downloads/16 Farmbot/source/bot.pyc"', shell=True, check=False)
         subprocess.run('python3 "16 Farmbot/source/bot.pyc"', shell=True, check=False)
