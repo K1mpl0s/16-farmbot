@@ -25,16 +25,21 @@ if '3.7' not in str(sys.version):
 dir_path = os.path.dirname(os.path.realpath(__file__))
 print(dir_path)
 if os.path.isdir('./storage/'):
-    print('storage is path')
-if os.path.isdir('./storage/downloads/'):
-    print('downloads is path')
-if os.path.isdir('./storage/downloads/16-' + version):
-    print('16 is path')
-if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source/'):
-    subprocess.run('cd "storage/downloads/16-' + version + '/16 Farmbot/source/bot.pyc"', shell=True, check=False)
-    subprocess.run('python3 "16-' + version + '16 Farmbot/source/bot.pyc"', shell=True, check=False)
-elif os.path.isdir('./storage/downloads/16 Farmbot/source/'):
-    subprocess.run('cd "storage/downloads/16 Farmbot/source/bot.pyc"', shell=True, check=False)
-    subprocess.run('python3 "16 Farmbot/source/bot.pyc"', shell=True, check=False)
-else:
-    print('[!] unable to locate 16 folder in "downloads"')
+    if os.path.isdir('./storage/downloads/'):
+        if os.path.isdir('./storage/downloads/16-' + version):
+            if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/'):
+                if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source/'):
+                    subprocess.run('cd "storage/downloads/16-' + version + '/16 Farmbot/source/"', shell=True, check=False)
+                    subprocess.run('python3 bot.pyc', shell=True, check=False)
+                else:
+                    print('[!] unable to locate 16 folder in "downloads"')
+            else:
+                if os.path.isdir('./storage/downloads/16 Farmbot/source/'):
+                    subprocess.run('cd "storage/downloads/16 Farmbot/source/"', shell=True, check=False)
+                    subprocess.run('python3 bot.pyc', shell=True, check=False)
+                else:
+                    print('[!] unable to locate 16 folder in "downloads"')
+        else:
+            print('[!] unable to locate 16 folder in "storage/downloads"')
+    else:
+        print('[!] unable to locate "storage"')
