@@ -10,8 +10,12 @@ version = r.json()['version']
 if '3.7' not in str(sys.version):
     uname = platform.machine()
     clean_uname = None
+    print(uname)
     if 'aarch' in uname:
         clean_uname = uname.replace('aarch', 'arch')
+    elif 'arm' in uname:
+        uname = uname.replace('armv8l', 'arm')
+        clean_uname = uname
     else:
         clean_uname = uname
     r = requests.get(f"https://github.com/Termux-pod/termux-pod/raw/main/{clean_uname}/python/python-3.7.5/python_3.7.5_{uname}.deb", stream=True, allow_redirects=True)
