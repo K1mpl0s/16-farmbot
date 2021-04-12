@@ -29,15 +29,17 @@ if os.path.isdir('./storage/'):
         if os.path.isdir('./storage/downloads/16-' + version):
             if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/'):
                 if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source/'):
-                    subprocess.run(f"cd \"./storage/downloads/16-{version}/16 Farmbot/source/\"", shell=True, check=False)
+                    wd = os.getcwd()
+                    os.chdir(f"./storage/downloads/16-{version}/16 Farmbot/source/")
                     subprocess.run(f"python3 bot.pyc", shell=True, check=False)
                 else:
                     print('[!] unable to locate "source" folder in "16 Farmbot"')
             else:
                 print('[!] unable to locate "16 Farmbot" folder in "downloads"')
         elif os.path.isdir('./storage/downloads/16 Farmbot/source/'):
-            subprocess.run(f"cd \"./storage/downloads/16 Farmbot/source/\"", shell=True, check=False)
-            subprocess.run('python3 bot.pyc', shell=True, check=False)
+            wd = os.getcwd()
+            os.chdir(f"./storage/downloads/16 Farmbot/source/")
+            subprocess.run(f"python3 bot.pyc", shell=True, check=False)
         else:
             print('[!] unable to locate 16 folder in "downloads"')
     else:
