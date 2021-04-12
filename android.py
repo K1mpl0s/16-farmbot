@@ -14,7 +14,7 @@ if '3.7' not in str(sys.version):
     if 'aarch' in uname:
         clean_uname = uname.replace('aarch', 'arch')
     elif 'arm' in uname:
-        uname = uname.replace('armv8l', 'arm')
+        uname = uname.replace(uname, 'arm')
         clean_uname = uname
     else:
         clean_uname = uname
@@ -24,7 +24,7 @@ if '3.7' not in str(sys.version):
         f.write(chunk)
     f.close()
     subprocess.run(f"dpkg -i ./python_3.7.5_{uname}.deb", shell=True, check=False)
-    print('\n\n\n')
+    print('\n\n')
     print('[!] successfully installed python3.7')
 dir_path = os.path.dirname(os.path.realpath(__file__))
 print(dir_path)
@@ -49,4 +49,4 @@ if os.path.isdir('./storage/'):
     else:
         print('[!] unable to locate "storage/downloads"')
 else:
-    print('[!] unable to locate "storage"')
+    print('[!] unable to locate "storage"\n...make sure you ran "termux-setup-storage"')
