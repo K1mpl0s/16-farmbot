@@ -42,7 +42,7 @@ if os.path.isdir('./storage/'):
                 else:
                     print('[!] unable to locate source in "16 Farmbot"')
                 break
-            elif '16-' in i:
+            elif '16-' in i and os.path.isdir('./storage/downloads/{i}'):
                 os.chdir(f"./storage/downloads/{i}/")
                 if os.path.isdir(f"./16 Farmbot/"):
                     if os.path.isdir('./storage/downloads/{i}/16 Farmbot/source/'):
