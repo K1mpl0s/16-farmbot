@@ -34,11 +34,13 @@ if os.path.isdir('./storage/'):
         for i in folders:
             if i == '16 Farmbot':
                 folder_found = True
-                subprocess.run(f"python3 storage/downloads/16\ Farmbot/source/bot.pyc", shell=True, check=False)
+                os.chdir(f"./storage/downloads/16 Farmbot/source/")
+                subprocess.run(f"python3 bot.pyc", shell=True, check=False)
                 break
             elif '16-' in i and os.path.isdir(f"./storage/downloads/{i}"):
                 folder_found = True
-                subprocess.run(f"python3 storage/downloads/{i}/16\ Farmbot/source/bot.pyc", shell=True, check=False)
+                os.chdir(f"./storage/downloads/{i}/16 Farmbot/source/")
+                subprocess.run(f"python3 bot.pyc", shell=True, check=False)
                 break
         if not folder_found:
             print('[!] unable to locate 16 Folder in "downloads"')
