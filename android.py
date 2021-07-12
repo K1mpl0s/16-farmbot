@@ -30,7 +30,7 @@ print(dir_path)
 folder_found = False
 if os.path.isdir('./storage/'):
     if os.path.isdir('./storage/downloads/'):
-        folders = sorted(os.listdir('./storage/downloads/'), key=os.path.getmtime, reverse=True)
+        folders = sorted((f for f in os.listdir('./storage/downloads/')), key=lambda f : os.path.getmtime(os.path.join('./storage/downloads/', f)), reverse=True)
         for i in folders:
             if i == '16 Farmbot':
                 os.chdir(f"./storage/downloads/16 Farmbot/")
