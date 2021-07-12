@@ -34,20 +34,18 @@ if os.path.isdir('./storage/'):
         for i in folders:
             if i == '16 Farmbot':
                 os.chdir(f"./storage/downloads/16 Farmbot/")
+                folder_found = True
                 if os.path.isdir('./source/'):
-                    folder_found = True
-                    wd = os.getcwd()
                     os.chdir(f"./storage/downloads/16 Farmbot/source/")
                     subprocess.run(f"python3 bot.pyc", shell=True, check=False)
                 else:
                     print('[!] unable to locate source in "16 Farmbot"')
                 break
-            elif '16-' in i and os.path.isdir('./storage/downloads/{i}'):
+            elif '16-' in i and os.path.isdir(f"./storage/downloads/{i}"):
                 os.chdir(f"./storage/downloads/{i}/")
+                folder_found = True
                 if os.path.isdir(f"./16 Farmbot/"):
                     if os.path.isdir('./storage/downloads/{i}/16 Farmbot/source/'):
-                        folder_found = True
-                        wd = os.getcwd()
                         os.chdir(f"./storage/downloads/{i}/16 Farmbot/source/")
                         subprocess.run(f"python3 bot.pyc", shell=True, check=False)
                     else:
