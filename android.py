@@ -45,10 +45,10 @@ if os.path.isdir('./storage/'):
             elif '16-' in i:
                 os.chdir(f"./storage/downloads/{i}/")
                 if os.path.isdir(f"./16 Farmbot/"):
-                    if os.path.isdir('./storage/downloads/16-' + version + '/16 Farmbot/source/'):
+                    if os.path.isdir('./storage/downloads/{i}/16 Farmbot/source/'):
                         folder_found = True
                         wd = os.getcwd()
-                        os.chdir(f"./storage/downloads/16-{version}/16 Farmbot/source/")
+                        os.chdir(f"./storage/downloads/{i}/16 Farmbot/source/")
                         subprocess.run(f"python3 bot.pyc", shell=True, check=False)
                     else:
                         print('[!] unable to locate "source" folder in "16 Farmbot"')
