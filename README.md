@@ -1,2 +1,2 @@
 # 16-farmbot
-a farmbot for DokkanBattle.
+Version control, Wiki, Android installation scripts.
